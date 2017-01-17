@@ -1,16 +1,18 @@
 var discount = {
   tenPercentDiscount: function(basket){
     if(basket.value() > 20){
-    var newValue = basket.value() * 0.9;
+    var newTotal = basket.value() * 0.9;
     };
-    return newValue;
+    return newTotal;
   },
 
-  loyaltyCard: function(basket){
+  loyaltyCardDiscount: function(basket){
     if(basket.hasLoyaltyCard === true){
-      var newValue = basket.value() * 0.95;
-    };
-    return newValue;
+      var newTotal1 = basket.value() * 0.95;
+    } else if (basket.hasLoyaltyCard === false){
+      var newTotal1 = basket.value();
+    }
+    return newTotal1;
   }
 
 }

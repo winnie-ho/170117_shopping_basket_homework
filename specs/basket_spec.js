@@ -29,12 +29,13 @@ describe("basket",function(){
   it("can return value of basket", function(){
     basket.addItem(item1);
     basket.addItem(item2);
-    console.log(basket.basketArray);
+    // console.log(basket.basketArray);
     assert.equal(0.42, basket.value());
   });
 
   it("has loyalty card", function(){
     assert.equal(false, basket.hasLoyaltyCard);
+    console.log(basket.hasLoyaltyCard);
   });
 
 

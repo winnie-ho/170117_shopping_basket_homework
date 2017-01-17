@@ -3,13 +3,13 @@ var basket = {
 
   addItem: function(item){
     this.basketArray.push(item);
-    console.log(item.name, "has been added")
+    // console.log(item.name, "has been added")
   },
 
   removeItem: function(item){
     var removeIndex = this.basketArray.indexOf(item.name);
     this.basketArray.splice(removeIndex,1);
-    console.log(item.name, "has been removed")
+    // console.log(item.name, "has been removed")
   },
 
   value: function(){
@@ -21,6 +21,7 @@ var basket = {
   },
 
   hasLoyaltyCard: false
+  
 
 };
 

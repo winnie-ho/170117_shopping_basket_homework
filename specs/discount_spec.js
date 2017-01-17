@@ -9,7 +9,7 @@ var item3 = new item ("Talisker Storm", 25.00, false);
 
 
 
-describe("basket",function(){
+describe("discount",function(){
   beforeEach(function(){
     basket.basketArray = [];
   });
@@ -21,7 +21,7 @@ describe("basket",function(){
 
   it("5% discount for loyalty card holders", function(){
     basket.addItem(item3);
-    assert.equal(22.50, discount.loyaltyCard(basket));
+    assert.equal(25.00, discount.loyaltyCardDiscount(basket));
   });
 
 });
