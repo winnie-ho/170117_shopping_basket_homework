@@ -2,8 +2,15 @@ var basket = {
   basketArray: new Array(),
 
   addItem: function(item){
+    if(item.bogof === true){
     this.basketArray.push(item);
-    // console.log(item.name, "has been added")
+    console.log(item.name, "has been added")
+    this.basketArray.push(item);
+    console.log(item.name, "has been added")
+    } else if (item.bogof === false) {
+      this.basketArray.push(item);
+    console.log(item.name, "has been added")
+    }
   },
 
   removeItem: function(item){
@@ -20,7 +27,7 @@ var basket = {
     return total;
   },
 
-  hasLoyaltyCard: false
+  hasLoyaltyCard: true
   
 
 };

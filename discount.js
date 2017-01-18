@@ -13,6 +13,14 @@ var discount = {
       var newTotal1 = basket.value();
     }
     return newTotal1;
+  },
+
+  bogof: function(basket){
+    for (var item of basket.basketArray){
+      if(item.bogof === true){
+        item.price = (item.price * 0.5);
+      }
+    } 
   }
 
 }
