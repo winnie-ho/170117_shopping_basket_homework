@@ -2,15 +2,7 @@ var basket = {
   basketArray: new Array(),
 
   addItem: function(item){
-    if(item.bogof === true){
     this.basketArray.push(item);
-    console.log(item.name, "has been added")
-    this.basketArray.push(item);
-    console.log(item.name, "has been added")
-    } else if (item.bogof === false) {
-      this.basketArray.push(item);
-    console.log(item.name, "has been added")
-    }
   },
 
   removeItem: function(item){
@@ -18,6 +10,7 @@ var basket = {
     this.basketArray.splice(removeIndex,1);
     // console.log(item.name, "has been removed")
   },
+
 
   value: function(){
     var total = 0;

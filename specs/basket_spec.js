@@ -15,7 +15,7 @@ describe("basket",function(){
   it("can add items to basket", function(){
     basket.addItem(item1);
     basket.addItem(item2);
-    assert.equal(3, basket.basketArray.length);
+    assert.equal(2, basket.basketArray.length);
   });
 
   it("can remove items from basket", function(){
@@ -23,20 +23,22 @@ describe("basket",function(){
     basket.addItem(item2);
     basket.addItem(item1);
     basket.removeItem(item3);
-    assert.equal(3, basket.basketArray.length);
+    assert.equal(2, basket.basketArray.length);
   });
 
   it("can return value of basket", function(){
     basket.addItem(item1);
     basket.addItem(item2);
     // console.log(basket.basketArray);
-    assert.equal(0.63, basket.value());
+    assert.equal(0.42, basket.value());
   });
 
   it("has loyalty card", function(){
     assert.equal(true, basket.hasLoyaltyCard);
     // console.log(basket.hasLoyaltyCard);
   });
+
+
 
 
 });

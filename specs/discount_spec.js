@@ -1,14 +1,15 @@
 var basket = require("../basket");
 var item = require("../item");
-var discount = require("../discount");
+var Discount = require("../discount");
 var assert = require("assert");
 
 var item1 = new item ("apples", 0.21, false);
 var item2 = new item ("oranges", 0.21, false);
 var item3 = new item ("Talisker Storm", 25.00, false);
 var item4 = new item ("milk", 1.45, true);
+var item5 = new item ("cheese", 2.56, true);
 
-
+var discount = new Discount();
 
 describe("discount",function(){
   beforeEach(function(){
@@ -27,13 +28,28 @@ describe("discount",function(){
   });
 
 
-  it("bogof", function(){
+  it("bogof for even numbers of bogof items", function(){
     basket.addItem(item4);
-    // discount.bogof(basket);
-    console.log(item4);
-    console.log(basket.basketArray);
-    assert.equal(1.45, basket.value());
+    basket.addItem(item4);
+    basket.addItem(item5);
+    basket.addItem(item5);
+
+    assert.equal(4.01, discount.bogof(basket));
   });
+
+
+  it("bogof for odd numbers of bogof items", function(){
+    basket.addItem(item4);
+    basket.addItem(item4);
+    basket.addItem(item4);
+    basket.addItem(item5);
+    basket.addItem(item5);
+
+    assert.equal(4.01, discount.bogof(basket).toFixed(2));
+    assert.equal(5.46, (basket.value() - discount.bogof(basket)).toFixed(2));
+  });
+
+
 
 
 });
