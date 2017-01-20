@@ -5,18 +5,18 @@ var Discount = function(){
 Discount.prototype = {
   tenPercentDiscount: function(basket){
     if(basket.value() > 20){
-    var newTotal = basket.value() * 0.9;
+    var tenDiscount = basket.value() * 0.1;
     };
-    return newTotal;
+    return tenDiscount;
   },
 
   loyaltyCardDiscount: function(basket){
     if(basket.hasLoyaltyCard === true){
-      var newTotal1 = basket.value() * 0.95;
+      var loyaltyDiscount = basket.value() * 0.05;
     } else if (basket.hasLoyaltyCard === false){
-      var newTotal1 = basket.value();
+      var loyaltyDiscount = 0;
     }
-    return newTotal1;
+    return loyaltyDiscount;
   },
 
   bogof: function(basket){
@@ -76,8 +76,21 @@ Discount.prototype = {
                   
                 
                 
-          return basket.value() - reduction;
+          bogofDiscount = basket.value() - reduction;
+          return bogofDiscount;
       
+   },
+   allDiscounts: function(basket){
+
+    var discount1= this.tenPercentDiscount(basket);
+
+    var discount2 = this.loyaltyCardDiscount(basket);
+
+    var discount3 = this.bogof(basket);
+
+    var totalDiscounts = discount1 + discount2 + discount3;
+    return basket.value() - totalDiscounts;
+
    }  
 }
 

@@ -18,13 +18,13 @@ describe("discount",function(){
 
   it("10% discount over £20", function(){
     basket.addItem(item3);
-    assert.equal(22.50, discount.tenPercentDiscount(basket));
+    assert.equal(2.50, discount.tenPercentDiscount(basket));
   });
 
 
   it("5% discount for loyalty card holders", function(){
     basket.addItem(item3);
-    assert.equal(23.75, discount.loyaltyCardDiscount(basket));
+    assert.equal(1.25, discount.loyaltyCardDiscount(basket));
   });
 
 
@@ -49,6 +49,19 @@ describe("discount",function(){
     assert.equal(5.46, (basket.value() - discount.bogof(basket)).toFixed(2));
   });
 
+  it("bogof work for a random basket", function(){
+    basket.addItem(item1);
+    basket.addItem(item3);
+    basket.addItem(item4);
+    basket.addItem(item4);
+    basket.addItem(item4);
+    basket.addItem(item5);
+    basket.addItem(item5);
+    assert.equal(3.468, discount.tenPercentDiscount(basket));
+    assert.equal(1.734, discount.loyaltyCardDiscount(basket));
+    assert.equal(4.01, discount.bogof(basket).toFixed(2));
+    assert.equal(25.47, discount.allDiscounts(basket).toFixed(2));
+  });
 
 
 
